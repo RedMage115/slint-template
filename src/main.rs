@@ -47,6 +47,5 @@ fn init_features() {
 }
 
 fn init_globals(ui: &AppWindow) {
-    ui.global::<AppConstants>()
-        .set_app_version_text(env!("CARGO_PKG_VERSION").to_shared_string())
+    ui.global::<AppConstants>().set_app_version_text(format!("Version: {}", env!("CARGO_PKG_VERSION")).to_shared_string());
 }
