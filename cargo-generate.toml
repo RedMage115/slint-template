@@ -1,0 +1,8 @@
+[template]
+ignore = [
+    ".vscode",
+    ".idea",
+    "log",
+    "Cargo.lock"
+]
+

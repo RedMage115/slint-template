@@ -1,0 +1,25 @@
+[package]
+name = "{{project-name}}"
+authors = ["{{authors}}"]
+version = "0.1.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+slint = {version = "1.11.*", optional = false}
+log = {version = "0.4.*", optional = false}
+log4rs = {version = "1.4.0-rc1", optional = true}
+velopack = {version = "0.0.1251", optional = true}
+rfd = {version = "0.15.*", optional = true}
+
+
+[build-dependencies]
+slint-build = "1.11.*"
+
+
+
+[features]
+installer = ["dep:velopack"]
+logging = ["dep:log4rs"]
+dialogs = ["dep:rfd"]

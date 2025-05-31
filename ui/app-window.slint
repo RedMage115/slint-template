@@ -1,0 +1,42 @@
+import { Button, VerticalBox, ComboBox } from "std-widgets.slint";
+import { AboutPopup } from "about-popup.slint";
+import { AppConstants } from "globals.slint";
+
+
+export component AppWindow inherits Window {
+    // Private Properties
+    min-width: 400px;
+    min-height: 300px;
+
+    // Public Properties
+
+    in-out property <int> counter: 42;
+
+    // Callbacks
+    callback request-increase-value();
+
+    // Popups
+    about-window := AboutPopup {
+        width: parent.width / 2;
+        height: parent.height / 2;
+        x: parent.width / 4;
+        y: parent.height / 4;
+    }
+
+    // Menu
+    MenuBar {
+        Menu {
+            title: "File";
+            MenuItem {
+                title: "About";
+                activated => {
+                    about-window.show();
+                }
+            }
+        }
+    }
+    // UI
+    VerticalBox {
+
+    }
+}

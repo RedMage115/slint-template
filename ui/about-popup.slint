@@ -1,0 +1,46 @@
+import { AboutSlint } from "std-widgets.slint";
+import { AppConstants } from "globals.slint";
+
+
+export component AboutPopup inherits PopupWindow {
+    // Private Properites
+    private property <length> title-font-size: 16pt;
+    private property <length> normal-font-size: 12pt;
+    private property <length> small-font-size: 6pt;
+    private property <TextHorizontalAlignment> font-alignment: TextHorizontalAlignment.center;
+
+    VerticalLayout {
+        Rectangle {
+            border-radius: 10px;
+            background: slategray;
+            VerticalLayout {
+                padding: 20px;
+                Text {
+                    text: AppConstants.app-name;
+                    horizontal-alignment: font-alignment;
+                    font-size: title-font-size;
+                }
+
+                Text {
+                    text: AppConstants.app-author-text;
+                    horizontal-alignment: font-alignment;
+                    font-size: normal-font-size;
+                }
+
+                Text {
+                    text: AppConstants.app-version-text;
+                    horizontal-alignment: font-alignment;
+                    font-size: normal-font-size;
+                }
+
+                AboutSlint { }
+
+                Text {
+                    text: "click to close";
+                    horizontal-alignment: font-alignment;
+                    font-size: small-font-size;
+                }
+            }
+        }
+    }
+}

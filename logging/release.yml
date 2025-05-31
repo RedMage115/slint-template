@@ -1,0 +1,13 @@
+#file: noinspection SpellCheckingInspection
+appenders:
+  file-log:
+    kind: file
+    path: "log/log.txt"
+    encoder:
+      pattern: "{h([{l:>5}])} {d(%Y-%m-%d %H:%M:%S)} - {M} - {m}{n}"
+
+
+root:
+  level: warn
+  appenders:
+    - file-log
