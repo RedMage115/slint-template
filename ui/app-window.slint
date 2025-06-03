@@ -1,6 +1,7 @@
 import { Button, VerticalBox, ComboBox } from "std-widgets.slint";
 import { AboutPopup } from "about-popup.slint";
 import { AppConstants } from "globals.slint";
+import { AppView } from "app-view.slint";
 
 
 export component AppWindow inherits Window {
@@ -9,11 +10,8 @@ export component AppWindow inherits Window {
     min-height: 300px;
 
     // Public Properties
-
-    in-out property <int> counter: 42;
-
+    in-out property <AppView> current-view: AppView.main;
     // Callbacks
-    callback request-increase-value();
 
     // Popups
     about-window := AboutPopup {
@@ -37,6 +35,6 @@ export component AppWindow inherits Window {
     }
     // UI
     VerticalBox {
-
+        if current-view == AppView.main : VerticalBox {}
     }
 }
