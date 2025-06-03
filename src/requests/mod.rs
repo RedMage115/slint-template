@@ -3,7 +3,7 @@ use slint::ComponentHandle;
 use crate::AppWindow;
 
 pub fn register_callbacks(ui: &AppWindow) {
-
+    /* 
     ui.on_request_increase_value({
         let ui_handle = ui.as_weak();
         move || {
@@ -12,7 +12,7 @@ pub fn register_callbacks(ui: &AppWindow) {
             debug!("Counter: {}", ui.get_counter());
         }
     });
-
+*/
 }
 
 

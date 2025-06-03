@@ -2,6 +2,7 @@ import { Button, VerticalBox, ComboBox } from "std-widgets.slint";
 import { AboutPopup } from "about-popup.slint";
 import { AppConstants } from "globals.slint";
 import { AppView } from "app-view.slint";
+import { MainView } from "main-view.slint";
 
 
 export component AppWindow inherits Window {
@@ -35,6 +36,6 @@ export component AppWindow inherits Window {
     }
     // UI
     VerticalBox {
-        if current-view == AppView.main : VerticalBox {}
+        if current-view == AppView.main : MainView {}
     }
 }
