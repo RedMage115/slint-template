@@ -2,7 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 // Standard Modules
-
+mod workers;
 mod requests;
 // Feature Modules
 #[cfg(feature = "installer")]
@@ -21,6 +21,8 @@ use std::error::Error;
 #[cfg(feature = "installer")]
 use velopack::VelopackApp;
 
+use crate::workers::BackgroundWorker;
+
 slint::include_modules!();
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -31,11 +33,14 @@ fn main() -> Result<(), Box<dyn Error>> {
     let ui = AppWindow::new()?;
     debug!("initializing globals");
     init_globals(&ui);
+    debug!("initializing background worker");
+    let background_worker = BackgroundWorker::new(&ui);
     debug!("registering callbacks");
-    requests::register_callbacks(&ui);
+    requests::register_callbacks(&ui, &background_worker);
     debug!("starting app");
     ui.run()?;
     debug!("closing app");
+    _ = background_worker.join();
     Ok(())
 }
 
