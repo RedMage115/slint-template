@@ -1,8 +1,8 @@
 use log::{debug};
 use slint::ComponentHandle;
-use crate::AppWindow;
+use crate::{workers::BackgroundWorker, AppWindow};
 
-pub fn register_callbacks(ui: &AppWindow) {
+pub fn register_callbacks(ui: &AppWindow, background_worker: &BackgroundWorker) {
     /* 
     ui.on_request_increase_value({
         let ui_handle = ui.as_weak();

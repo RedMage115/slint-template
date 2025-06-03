@@ -9,8 +9,9 @@ edition = "2024"
 [dependencies]
 slint = {version = "1.11.*", optional = false}
 log = {version = "0.4.*", optional = false}
+tokio = { version = "1.45.*", features = ["full"], optional = false }
 log4rs = {version = "1.4.0-rc1", optional = true}
-velopack = {version = "0.0.1251", optional = true}
+velopack = {version = "0.0.*", optional = true}
 rfd = {version = "0.15.*", optional = true}
 
 
